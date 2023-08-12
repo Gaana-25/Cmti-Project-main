@@ -1,0 +1,135 @@
+    @media screen and (max-width: 1200px) and (min-width: 800px) {
+        #blank {
+            display: block;
+        }
+        #main-section {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1rem 2rem 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        #tab {
+            max-width: 800px;
+        }
+        footer {
+            position: relative;
+        }
+        #sample-data-graph,
+        #live-data-graph {
+            max-width: 800px;
+            /* grid-template-columns: 1fr; */
+            /* grid-template-rows: 1fr 1fr; */
+            padding: 0;
+        }
+        #sample-data-graph {
+            align-content: center;
+        }
+        #process_chart canvas,
+        #process_chart .className {
+            width: 420px !important;
+            height: 380px!important;
+        }
+        #live-graph {
+            position: absolute;
+            width: 60%;
+        }
+        #sample-data-graph #graph {
+            display: flex;
+            flex-direction: column;
+        }
+        #graph-details-heading {
+            padding: 10px;
+            margin-top: 20px;
+            font-size: large;
+        }
+        #space {
+            height: 20px;
+        }
+        #graph-details {
+            width: 80%;
+            font-size: 13px;
+        }
+        #graph-details td {
+            padding: 5px;
+        }
+        #myProgress {
+            margin-top: 10px;
+            width: 100%;
+        }
+        #live-data-graph {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            /* height: max-content; */
+            height: auto;
+        }
+        #live-graph {
+            position: relative;
+            width: 100%;
+            justify-content: flex-start;
+            margin-left: 20px;
+        }
+        #real_chart canvas,
+        #real_chart .className {
+            width: 660px !important;
+            height: 400px!important;
+        }
+        #finished-statement {
+            font-size: large;
+        }
+        #label2 {
+            margin-top: 10px;
+        }
+        #details-header li {
+            font-family: 'Catamaran';
+            font-size: medium;
+        }
+    }
+    
+    @media screen and (max-width: 800px) {
+        #main-section {
+            display: flex;
+            max-width: 640px;
+            grid-template-columns: 1fr;
+        }
+        #tab {
+            max-width: 640px;
+        }
+        #process_chart canvas,
+        #process_chart .className {
+            width: 520px !important;
+            height: 380px!important;
+        }
+        #sample-data-graph,
+        #live-data-graph {
+            max-width: 640px;
+            height: max-content;
+            grid-template-columns: 1fr;
+            /* justify-self: center; */
+            padding-bottom: 20px;
+            padding-left: 10px;
+        }
+        #sample-data-graph #graph {
+            display: flex;
+            flex-direction: column;
+        }
+        #finished-statement {
+            font-size: large;
+        }
+        #space {
+            height: 10px;
+        }
+        #real_chart canvas,
+        #real_chart .className {
+            width: 600px !important;
+            height: 400px!important;
+        }
+        #real_chart {
+            padding: 0;
+        }
+        footer {
+            position: relative;
+        }
+    }

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Process Monitoring For Various Machine in a workshop">
+    <meta name="keywords" content="Process Monitoring,Process,SPM,OPCUA,CMTI">
+    <meta name="copyright" content="CMTI">
+    <meta name="author" content="mnkm">
+    <title>Process Monitoring</title>
+    <link rel="icon" href="cmti_logo_original.png">
+    <link rel="stylesheet" href="js/dygraph.min.css" />
+    <link rel="stylesheet" href="process1.css">
+    <link rel="stylesheet" href="input_style.css">
+    <link rel="stylesheet" href="graph.css">
+</head>
+
+<body>
+    <header>
+        <div id="header-elements">
+            <img src="cmti_logo_original.png" alt="cmti_logo" width="130" height="60">
+            <h1>PROCESS MONITORING</h1>
+        </div>
+    </header>
+    <div id="blank" style="height: 20px;"></div>
+    <section id="middle-section">
+        <!-- <section id="tab">
+            <button class="tablinks" onclick="openPage('main-section', this,1)" id="defaultOpen">Start</button>
+            <button class="tablinks" onclick="openPage('sample-data-graph', this,2)" id="sample-data-tablink"
+                style="display: none;">Sample Data</button>
+            <button class="tablinks" onclick="openPage('live-data-graph', this,3)" id="live-data-tablink"
+                style="display: none;">Live Data</button>
+        </section> -->
+
+        <section id="main-section" class="tabcontent">
+            <!-- <section id="details-header">
+                <div id="details-header-heading">
+                </div>
+
+            </section> -->
+
+            <section id="parameter-selection-section">
+                <div id="parameter-selection-title">
+                    PARAMETER SETTINGS
+                </div>
+                <div id="parameter-selections">
+                    <div id="machine-selection">
+                        <label for="machines">Machine Selection</label>
+                        <select id="machines-names" name="machines">
+                            <option id="option-check" value="Machine 1">Machine 1</option>
+                            <option value="Machine 2">Machine 2</option>
+                            <option value="Machine 3">Machine 3</option>
+                            <option value="Machine 4">Machine 4</option>
+                        </select>
+                    </div>
+                    <div id="process-name">
+                        <label for="process">Process Name</label>
+                        <input type="text" id="name" size="20" name="process">
+                    </div>
+                    <div id="seconds-selection">
+                        <label for="secs">Seconds in Cycle</label>
+                        <input type="text" id="secs" size="20" name="seconds">
+                    </div>
+                    <div id="cycle-selection">
+                        <!-- <span>
+                            <input class="slide-up" id="card" type="text" placeholder="Fund me!" /><label for="card">Credit Card</label>
+                        </span> -->
+                        <label for="cycles">Number of Cycles</label>
+                        <input type="text" id="reps" size="20" name="cycles">
+                    </div>
+                </div>
+                <div id="buttons">
+                    <button id="reset" onClick="window.location.href=window.location.href">RESET</button>
+                    <button type="button" id="start">NEXT</button>
+                </div>
+            </section>
+        </section>
+
+        <section id="sample-data-graph" class="tabcontent" style="display: none;">
+            <div id="graph">
+                <div id="process_chart"></div>
+                <div id="label1"></div>
+            </div>
+            <div id="graph-details">
+                <div id="graph-details-heading">Process Cycle Details</div>
+                <table id="process-tables">
+                    <tr>
+                        <td>
+                            1.
+                        </td>
+                        <td>
+                            Machine
+                        </td>
+                        <td>:</td>
+                        <td id="machine-name">
+                            Machine -1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2.
+                        </td>
+                        <td>
+                            Process Name
+                        </td>
+                        <td>:</td>
+                        <td id="process-name">
+                            Milling 230
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3.
+                        </td>
+                        <td>
+                            Cycle Duration
+                        </td>
+                        <td>:</td>
+                        <td id="cycle-time">
+                            23
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            4.
+                        </td>
+                        <td>
+                            Sampling Number
+                        </td>
+                        <td>:</td>
+                        <td id="cycle-time">
+                            5
+                        </td>
+                    </tr>
+                </table>
+                <div id="space"></div>
+                <div id="myProgress">
+                    <div id="myBar"></div>
+                </div>
+                <div id="space"></div>
+                <div id="finished-statement">Calculating..</div>
+                <div id="space"></div>
+                <button id="live-data-button" disabled>Live Data</button>
+            </div>
+        </section>
+        <section id="live-data-graph" class="tabcontent" style="display: none;">
+            <div id="live-graph">
+                <div id="real_chart"></div>
+                <div id="label2"></div>
+            </div>
+            <div id="live-graph-details" style="display: none;">
+                <div id="live-details-heading">Live Cycle Details</div>
+                <div id="status-details">
+                    <div id="machine-name2">
+                    </div>
+                    <div id="date-time">
+                    </div>
+                </div>
+                <table id="live-tables">
+                    <tr>
+                        <th>
+                            SL.No
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                </table>
+                <div id="table-scroll">
+                    <table id="live-table"></table>
+                </div>
+                <button id="stop">Stop the Process</button>
+            </div>
+        </section>
+    </section>
+</body>
+<script src="moment.js"></script>
+<script src="../../code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+<script src="js/dygraph.min.js"></script>
+<script type="text/javascript" src="process4.js"></script>
+<link rel="stylesheet" href="responsive.css">
+
+</html>
